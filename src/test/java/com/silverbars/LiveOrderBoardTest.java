@@ -3,6 +3,7 @@ package com.silverbars;
 import com.silverbars.domain.Order;
 import com.silverbars.domain.OrderSummary;
 import com.silverbars.domain.PricePerKg;
+import com.silverbars.exception.EmptyOrderListException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,13 +25,13 @@ public class LiveOrderBoardTest {
     }
 
     @Test
-    public void should_start_with_no_orders_displayed() {
+    public void should_start_with_no_orders_displayed() throws EmptyOrderListException{
 
         assertThat(board.summary()).isEmpty();
     }
 
     @Test
-    public void should_display_a_registered_order() {
+    public void should_display_a_registered_order() throws EmptyOrderListException{
 
         board.register(buy(kg(3.5), £(306), Alice));
 
@@ -40,7 +41,7 @@ public class LiveOrderBoardTest {
     }
 
     @Test
-    public void should_display_a_summary_of_those_registered_orders_which_type_and_bid_price_match() {
+    public void should_display_a_summary_of_those_registered_orders_which_type_and_bid_price_match() throws EmptyOrderListException{
 
         board.register(buy(kg(3.5), £(306), Alice));
         board.register(buy(kg(2.5), £(306), Bob));
@@ -52,7 +53,7 @@ public class LiveOrderBoardTest {
 
 
     @Test
-    public void should_allow_to_cancel_a_registered_order_when_requested_so_by_the_user_who_placed_it() {
+    public void should_allow_to_cancel_a_registered_order_when_requested_so_by_the_user_who_placed_it() throws EmptyOrderListException{
 
         board.register(buy(kg(3.5), £(306), Alice));
         board.cancel(buy(kg(3.5), £(306), Alice));
@@ -61,7 +62,7 @@ public class LiveOrderBoardTest {
     }
 
     @Test
-    public void should_not_cancel_a_registered_order_when_requested_so_by_a_user_who_did_not_place_it() {
+    public void should_not_cancel_a_registered_order_when_requested_so_by_a_user_who_did_not_place_it() throws EmptyOrderListException{
 
         board.register(buy(kg(3.5), £(306), Alice));
         board.cancel(buy(kg(3.5), £(306), Bob));
@@ -72,7 +73,7 @@ public class LiveOrderBoardTest {
     }
 
     @Test
-    public void should_allow_to_cancel_one_of_several_registered_orders() {
+    public void should_allow_to_cancel_one_of_several_registered_orders() throws EmptyOrderListException{
 
         board.register(buy(kg(3.5), £(306), Alice));
         board.register(buy(kg(2.5), £(306), Alice));
@@ -86,7 +87,7 @@ public class LiveOrderBoardTest {
     }
 
     @Test
-    public void should_produce_distinct_summaries_for_orders_with_different_price() {
+    public void should_produce_distinct_summaries_for_orders_with_different_price() throws EmptyOrderListException{
 
         board.register(buy(kg(3.5), £(306), Alice));
         board.register(buy(kg(7.0), £(250), Alice));
@@ -98,7 +99,7 @@ public class LiveOrderBoardTest {
     }
 
     @Test
-    public void should_sort_Sell_orders_in_ascending_order() {
+    public void should_sort_Sell_orders_in_ascending_order() throws EmptyOrderListException{
 
         board.register(sell(kg(3.5), £(306), Alice));
         board.register(sell(kg(7.0), £(250), Alice));
@@ -110,7 +111,7 @@ public class LiveOrderBoardTest {
     }
 
     @Test
-    public void should_sort_Buy_orders_in_descending_order() {
+    public void should_sort_Buy_orders_in_descending_order() throws EmptyOrderListException{
 
         board.register(buy(kg(7.0), £(250), Alice));
         board.register(buy(kg(3.5), £(306), Alice));
@@ -122,7 +123,7 @@ public class LiveOrderBoardTest {
     }
 
     @Test
-    public void should_display_Buy_orders_before_Sell_orders() {
+    public void should_display_Buy_orders_before_Sell_orders() throws EmptyOrderListException{
 
         board.register(buy(kg(7.0), £(250), Alice));
         board.register(sell(kg(7.0), £(430), Alice));

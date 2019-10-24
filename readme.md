@@ -63,38 +63,6 @@ which is a composition of three other comparators.
 This is a simple java application and can be run using [`OrderTester`](https://github.com/malhotraisha/SilverBarMarketPlace/blob/master/src/test/java/com/silverbars/OrderTester.java)
 This class asks the user to input the order details (userid , quantity, price , type). If you wish to add more orders press Y and enter details.
 Before submitting the orders if you wish to cancel one of the many orders press C and enter the order details to be cancelled
-The class then displays the order summary at the end. 
+The class then displays the order summary at the end.
 
-Program Execution :
-
-Enter details to register an Order
-enter userId:
-esha
-enter quantity in Kgs:
-1
-enter PricePerKg in Pounds:
-11
-enter Order Type Buy/Sell
-buy
-
-If you wish to add more orders enter Y 
-n
-Do you wish to confirm order? If no press C to cancel an order
-c
-Enter details to cancel order
-enter userId:
-e
-enter quantity in Kgs:
-2
-enter PricePerKg in Pounds:
-11
-enter Order Type Buy/Sell
-sell
-15:28:22.575 [main] INFO  com.silverbars.LiveOrderBoard - Cancelling Order: Order{userId=UserId{userId='e'}, quantity=2.0 kg, pricePerKg=PricePerKg{amount=GBP 11.00}, orderType=Sell}
-15:28:22.575 [main] INFO  com.silverbars.LiveOrderBoard - Invalid Order input
-15:28:22.575 [main] INFO  com.silverbars.LiveOrderBoard - Displaying Order Summary
-15:28:22.580 [main] INFO  com.silverbars.LiveOrderBoard - Displaying Order Summary
-OrderSummary{pricePerKg=PricePerKg{amount=GBP 11.00}, orderType=Buy, quantity=1.0 kg}
-
-Process finished with exit code 0
 

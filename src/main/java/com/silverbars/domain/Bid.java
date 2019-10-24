@@ -2,6 +2,9 @@ package com.silverbars.domain;
 
 import java.util.Objects;
 
+/**
+ *
+ */
 final public class Bid {
     private final PricePerKg pricePerKg;
     private final Order.Type type;

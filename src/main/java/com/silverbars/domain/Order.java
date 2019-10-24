@@ -4,6 +4,11 @@ import javax.measure.Quantity;
 import javax.measure.quantity.Mass;
 import java.util.Objects;
 
+/**
+ * This class is modelled to capture the order
+ * && compares the order using OrderComparator class
+ *
+ */
 final public class Order {
     public enum Type { Buy, Sell }
 
@@ -12,6 +17,13 @@ final public class Order {
     private final PricePerKg pricePerKg;
     private final Type orderType;
 
+    /**
+     * Instantiates the order
+     * @param userId
+     * @param quantity
+     * @param pricePerKg
+     * @param orderType
+     */
     public Order(UserId userId, Quantity<Mass> quantity, PricePerKg pricePerKg, Type orderType) {
         this.userId = userId;
         this.quantity = quantity;
