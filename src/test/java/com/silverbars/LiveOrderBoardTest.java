@@ -24,7 +24,7 @@ public class LiveOrderBoardTest {
         board = new LiveOrderBoard();
     }
 
-    @Test
+    @Test(expected = EmptyOrderListException.class)
     public void should_start_with_no_orders_displayed() throws EmptyOrderListException{
 
         assertThat(board.summary()).isEmpty();
